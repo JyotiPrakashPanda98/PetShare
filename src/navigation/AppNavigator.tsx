@@ -58,8 +58,26 @@ const MainTabs = () => {
 };
 
 const AppNavigator = () => {
+  const linking = {
+    prefixes: ['/'],
+    config: {
+      screens: {
+        Splash: '',
+        Login: 'login',
+        MainTabs: {
+          screens: {
+            Feed: 'feed',
+            AddPost: 'add',
+            Profile: 'profile',
+          },
+        },
+        Settings: 'settings',
+      },
+    },
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator
         initialRouteName="Splash"
         screenOptions={{
